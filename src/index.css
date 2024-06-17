@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+#root, .app_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body{
+  font-family: "Josefin Sans", sans-serif, "Courier New", Courier, monospace;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: hsl(234, 11%, 51%)
+}
+
+img {
+  width:100%;
+  max-width:100%;
+}
+
+.container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+header {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.header_content {
+  display: flex;
+  align-items: center;
+}
+
+.btn_icon_toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+form {
+  display: flex;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.todo_input {
+  background-color: hsl(237, 14%, 26%);
+  color: white;
+  font-size: 1.125rem;
+  border: 1px solid hsl(236, 9%, 61%); 
+  width: calc(100% - 4rem);
+  height: 5rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  padding-left: 100px;
+}
+
+.todo-input:focus {
+  outline: none;
+}
+
+.submitBtn {  
+  display: flex;
+  background-color: hsl(237, 14%, 26%);
+  border-color: inherit;
+  border-radius: 50%;  
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  position: absolute;
+  top: 35px;
+  left: 50px;
+}
+
+.submitBtn:focus {
+  outline: none;
+}
+
+.todo_btns {
+  display: flex;
+  justify-content: space-between; 
+  margin-top: 5rem;
+}
+  
+.todo_btns span {
+  color: hsl(234, 24%, 85%);
+  font-size: 1.125rem;
+}
+    
+.tags_btns {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: hsl(234,24%, 85%);
+  font-size: 1.3rem;
+  margin-right: 2rem;
+}
+
+.one {
+  color: rgb(82, 177, 177);
+}
+
+/* media query*/
+
+@media (min-width: 600px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60ch;
+  }
+
+  header {
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
+  }
+
+  .todo_btns span {
+    margin-left: 0.625rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60ch;
+  }
+}
+
+@media (max-width: 599px) and (min-width: 375px) {
+  .todo_input {
+    font-size: 0.875rem; 
+    padding: 1rem; 
+    padding-left: 5.5rem; 
+  }
+
+  .todo_btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .todo_btns > div:last-of-type {
+    margin-top: 1rem;
+  }
+
+  .todo_btns span {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/*toggle mode*/
+
+.dark_mode {
+  background-image: url(/src/assets/bg-desktop-dark.jpg) ;
+  background-color: hsl(235, 21%, 11%);
+  background-repeat: no-repeat;
+  background-size: auto;
+  color: hsl(233, 14%, 35%)
+}
+
+.dark_mode .todo_input {
+  background-color: hsl(237, 14%, 26%);
+  color:white;
+  border: none;
+}
+
+.dark-mode .submitBtn {
+  background-color: hsl(237, 14%, 26%);
+}
+
+.light_mode {
+  background-image: url(/src/assets/bg-desktop-light.jpg);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(236, 9%, 61%);
+}
+
+.light_mode .todo_input {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(236, 9%, 61%);
+}
+
+.light_mode .submitBtn {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.light_mode .tags_btns {
+  color: hsl(236, 9%, 61%);
+}
+
+.light_mode .todo_btns span {
+  color: hsl(236, 9%, 61%);
+}
