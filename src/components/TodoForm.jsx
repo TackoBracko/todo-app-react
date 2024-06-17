@@ -3,11 +3,6 @@ import { useState } from "react"
 export default function TodoForm({ addTodoTask }) {
     const [inputTaskValue, setInputTaskValue] = useState('')
 
-    function handleAddTodoTask() {
-        addTodoTask(inputTaskValue)
-        setInputTaskValue('')
-    }
-
     function handleSubmit(e) {
         e.preventDefault()
     }
@@ -22,7 +17,7 @@ export default function TodoForm({ addTodoTask }) {
                     onChange={(e) => setInputTaskValue(e.target.value)}
                     placeholder="Create a new todo..."
                 />
-                <button type="submit" className="submitBtn" onClick={handleAddTodoTask}></button>
+                <button type="submit" className="submitBtn" onClick={() => {setInputTaskValue(''), addTodoTask(inputTaskValue)}}></button>
             </form>
         </>
     )
