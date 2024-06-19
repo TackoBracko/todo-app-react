@@ -6,6 +6,6 @@ export default function TodoList({ tasks }) {
             {tasks.map(task => (
                 <TodoItem key={task.id} task={task} />
             ))}
-        </ul>
+        </ul> 
     )
 }

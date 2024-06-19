@@ -66,12 +66,10 @@ form {
 
 .todo_input {
   background-color: hsl(237, 14%, 26%);
-  color: white;
+  color: hsl(236, 9%, 61%); 
   font-size: 1.125rem;
-  border: 1px solid hsl(236, 9%, 61%); 
-  width: calc(100% - 4rem);
+  width: 100%;
   height: 5rem;
-  padding: 2rem;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
   padding-left: 100px;
@@ -79,6 +77,48 @@ form {
 
 .todo-input:focus {
   outline: none;
+}
+
+.task {
+  list-style: none;
+  margin-left: 1rem;
+  background-color: hsl(237, 14%, 26%);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  color: hsl(236, 9%, 61%); 
+  border-bottom: 1px solid grey;
+  font-size: 1.5rem;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task_checkbox {
+  margin-right: 1rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.task_checkbox:checked {
+  background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.task_deleteBtn {
+  background-color: transparent;
+  border: none; 
+  color: hsl(236, 9%, 61%); 
+  font-size: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer; 
 }
 
 .submitBtn {  
@@ -179,7 +219,6 @@ form {
   background-color: hsl(235, 21%, 11%);
   background-repeat: no-repeat;
   background-size: auto;
-  color: hsl(233, 14%, 35%)
 }
 
 .dark_mode .todo_input {
@@ -203,6 +242,11 @@ form {
 .light_mode .todo_input {
   background-color: hsl(0, 0%, 98%);
   color: hsl(236, 9%, 61%);
+}
+
+.light_mode .task {
+  background-color: hsl(0, 0%, 98%);
+  border: 1px solid hsl(236, 9%, 61%);
 }
 
 .light_mode .submitBtn {
