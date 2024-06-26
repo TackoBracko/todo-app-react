@@ -1,8 +1,9 @@
-export default function TodoButtons() {
+export default function TodoButtons({tasks}) {
+    
     return (
         <>
             <section className="todo_btns">
-                <span>5 items left</span>
+            <span> {tasks.length} tasks left</span>
 
                 <div>
                     <button className="tags_btns one">All</button>

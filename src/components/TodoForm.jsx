@@ -1,26 +1,15 @@
 import { useState } from "react"
 
-export default function TodoForm({tasks, setTasks}) {
+export default function TodoForm({ addTodoTask }) {
     const [inputTaskValue, setInputTaskValue] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setInputTaskValue('')
     }
 
     const handleChange = (e) => {
         setInputTaskValue(e.target.value)
-    }
-
-    const addTodoTask = () => {
-        if (inputTaskValue.trim() !== '') {
-            const newTask = {
-                title: inputTaskValue,
-                id: Math.random()
-            }
-
-            setTasks([...tasks, newTask])
-            setInputTaskValue('')
-        }
     }
 
     return (
@@ -33,7 +22,7 @@ export default function TodoForm({tasks, setTasks}) {
                     onChange={handleChange}
                     placeholder="Create a new todo..."
                 />
-                <button type="submit" className="submitBtn" onClick={addTodoTask}></button>
+                <button type="submit" className="submitBtn" onClick={() => addTodoTask(inputTaskValue)}></button>
             </form>
         </>
     )
