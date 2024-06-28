@@ -5,6 +5,7 @@ export default function TodoForm({ addTodoTask }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        addTodoTask(inputTaskValue)
         setInputTaskValue('')
     }
 
@@ -14,7 +15,8 @@ export default function TodoForm({ addTodoTask }) {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
+                <button type="submit" className="submitBtn" ></button>
                 <input
                     type="text"
                     value={inputTaskValue}
@@ -22,7 +24,6 @@ export default function TodoForm({ addTodoTask }) {
                     onChange={handleChange}
                     placeholder="Create a new todo..."
                 />
-                <button type="submit" className="submitBtn" onClick={() => addTodoTask(inputTaskValue)}></button>
             </form>
         </>
     )
