@@ -151,29 +151,48 @@ img {
 
   .todo_btns {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: .95rem 1rem;
     background-color: hsl(237, 14%, 26%);
     height: 3.5rem;
-    padding: 1rem 0rem 0.5rem 1rem;
-    text-align: center;
-    gap: 1rem
   }
 
   .todo_btns:last-child {
     border-radius: 0rem 0rem 0.5rem 0.5rem;
   }
 
-  .tags_btns {
+  .filter_btns_list, .filter_btns_show {
+    display: flex;
+    gap:1rem;
+  }
+
+  .filter_btn {
+    list-style: none;
     background-color: transparent;
     color: var(--dark-grayish-blue);
     border: none;
     cursor: pointer;
-    margin-right: 0.5rem;
+  }
+
+  .filter_btns_show {
+    justify-content: center;
+    align-items: center;
+    padding: .95rem 1rem;
+    background-color: hsl(237, 14%, 26%);
+    height: 3.5rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
   }
 
   .one {
     color: rgb(82, 177, 177);
+  }
+
+  .clear_all_btn {
+    border: none; 
+    background-color: transparent;
+    color:hsl(236, 9%, 61%); 
   }
 }
 
@@ -225,11 +244,15 @@ img {
   border: 1px solid var(--light-grayish-blue);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .container {
     margin-left: auto;
     margin-right: auto;
     width: 60ch;
+  }
+
+  .filter_btns_show {
+    display: none;
   }
 }
 
@@ -249,4 +272,10 @@ img {
     background-repeat: no-repeat;
     background-size: contain;
   }  
+}
+
+@media (max-width: 600px) {
+  .filter_btns_list {
+    display: none;
+  }
 }
