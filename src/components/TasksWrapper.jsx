@@ -5,6 +5,7 @@ import { useState } from "react"
 
 export default function TasksWrapper() {
     const [tasks, setTasks] = useState([])
+    const [status, setStatus] = useState('all')
     
     const addTodoTask = (inputTaskValue) => {
         if (inputTaskValue.trim() !== '') {
@@ -32,16 +33,24 @@ export default function TasksWrapper() {
         setTasks(tasks.filter(task => task.id !== id))
     }
 
-    const filterTasks = (status) => {
-        if (status === 'all') {
-            return tasks
-        } else if (status === 'active') {
-            return tasks.filter(task => !task.completed)
-        } else if (status === 'completed') {
-            return tasks.filter(task => task.completed)
-        } else {
-            return tasks
-        }
+    const filteredTasks = (status, tasks) => {
+        if (status === 'all') return tasks
+        if (status === 'active') return tasks.filter(task => !task.completed)
+        if (status === 'completed') return tasks.filter(task => task.completed)
+        
+        return tasks
+    }
+
+    const filterAllTasks = () => {
+        setStatus('all')
+    }
+
+    const filterActiveTasks = () => {
+        setStatus('active')
+    }
+
+    const filterCompletedTasks = () => {
+        setStatus('completed')
     }
 
     const clearCompletedTasks = () => {
@@ -51,9 +60,14 @@ export default function TasksWrapper() {
     return (
         <>
             <TodoForm addTodoTask={addTodoTask} />
-            <TodoList tasks={tasks} toggleTaskStatus={toggleTaskStatus} deleteTask={deleteTask} />
+            <TodoList tasks={filteredTasks(status, tasks)} toggleTaskStatus={toggleTaskStatus} deleteTask={deleteTask} />
             {tasks.length > 0 &&
-                <TodoButtons filterTasks={filterTasks} clearCompletedTasks={clearCompletedTasks}/>
+                <TodoButtons
+                    filterAllTasks={filterAllTasks}
+                    filterActiveTasks={filterActiveTasks}
+                    filterCompletedTasks={filterCompletedTasks}
+                    clearCompletedTasks={clearCompletedTasks}
+                />
             }
         </>
     )
